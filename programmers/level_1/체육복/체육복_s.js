@@ -41,3 +41,22 @@ function solution(n, lost, reserve) {
   }
   return n - hasNoStudents;
 }
+
+// 재 풀이 2
+function solution(n, lost, reserve) {
+  let hasNoStudents = 0;
+  const filterRes = reserve
+    .filter((el) => !lost.includes(el))
+    .sort((a, b) => a - b);
+  const filterLost = lost
+    .filter((el) => !reserve.includes(el))
+    .sort((a, b) => a - b);
+  for (let i = 0; i < filterLost.length; i++) {
+    if (filterRes.includes(filterLost[i] - 1))
+      filterRes.splice(filterRes.indexOf(filterLost[i] - 1), 1);
+    else if (filterRes.includes(filterLost[i] + 1))
+      filterRes.splice(filterRes.indexOf(filterLost[i] + 1), 1);
+    else hasNoStudents++;
+  }
+  return n - hasNoStudents;
+}
