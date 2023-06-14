@@ -43,6 +43,9 @@ function solution(n, lost, reserve) {
 }
 
 // 재 풀이 2
+// 개선사항
+// 1. 여유분이 있는 학생이 동시에 훔쳐질 수 도 있어서 For문 이전에 제외 시켜야한다.
+// 2. n이 순서대로 주어지지 않는 경우가 있어서 sort해주어야 한다.
 function solution(n, lost, reserve) {
   let hasNoStudents = 0;
   const filterRes = reserve
