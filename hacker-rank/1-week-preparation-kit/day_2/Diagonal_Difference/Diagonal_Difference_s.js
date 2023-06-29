@@ -6,9 +6,7 @@ function diagonalDifference(arr) {
   let rightToleft = 0;
   for (let i = 0; i < arr.length; i++) {
     rightToleft += arr[i][arr.length - 1 - i];
-  }
-  for (let j = 0; j < arr.length; j++) {
-    leftToRight += arr[j][j];
+    leftToRight += arr[i][i];
   }
   return Math.abs(rightToleft - leftToRight);
 }
